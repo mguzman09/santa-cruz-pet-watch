@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Santa Cruz Pet Watch - Lost and found pet reports in Santa Cruz de la Sierra.">
+  <title>Santa Cruz Pet Watch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Santa Cruz Pet Watch home">
+        <span class="brand-icon" aria-hidden="true">🐾</span>
+        <span>Santa Cruz Pet Watch</span>
+      </a>
+      <a class="header-button" href="#report">Report a Pet</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Community-powered • Santa Cruz de la Sierra</p>
+        <h1>Help bring lost pets home.</h1>
+        <p class="hero-text">Find recent lost and found pet reports, filter sightings by area, and share information with your community.</p>
+        <a class="primary-button" href="#reports">View Pet Reports</a>
+      </div>
+    </section>
+
+    <section class="reports-section container" id="reports" aria-labelledby="reports-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Live report feed</p>
+          <h2 id="reports-title">Lost & Found Pets</h2>
+        </div>
+        <p id="results-count" class="results-count" aria-live="polite"></p>
+      </div>
+
+      <div class="filters" aria-label="Pet report filters">
+        <div class="filter-group">
+          <label for="status-filter">Status</label>
+          <select id="status-filter">
+            <option value="All">All statuses</option>
+            <option value="Lost">Lost</option>
+            <option value="Found">Found</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="area-filter">Area</label>
+          <select id="area-filter">
+            <option value="All">All areas</option>
+            <option value="Equipetrol">Equipetrol</option>
+            <option value="Urubo">Urubo</option>
+            <option value="Sirari">Sirari</option>
+            <option value="Plan 3000">Plan 3000</option>
+          </select>
+        </div>
+
+        <button class="secondary-button" id="clear-filters" type="button">Clear filters</button>
+      </div>
+
+      <div id="pet-feed" class="pet-grid" aria-live="polite"></div>
+      <p id="empty-state" class="empty-state" hidden>No pet reports match those filters.</p>
+    </section>
+
+    <section class="report-section" id="report" aria-labelledby="report-title">
+      <div class="container form-layout">
+        <div class="form-intro">
+          <p class="eyebrow">Community report</p>
+          <h2 id="report-title">Report a Pet</h2>
+          <p>Have you lost a pet or found one? Add the information below so the community can help.</p>
+          <div class="tip-box">
+            <strong>Tip:</strong> Include a clear photo, the area where the pet was seen, and a reliable way to contact you.
+          </div>
+        </div>
+
+        <form id="pet-form" class="pet-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="report-status">Status</label>
+              <select id="report-status" name="status" required>
+                <option value="">Select status</option>
+                <option value="Lost">Lost</option>
+                <option value="Found">Found</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="report-area">Area</label>
+              <select id="report-area" name="area" required>
+                <option value="">Select area</option>
+                <option value="Equipetrol">Equipetrol</option>
+                <option value="Urubo">Urubo</option>
+                <option value="Sirari">Sirari</option>
+                <option value="Plan 3000">Plan 3000</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="image-url">Image URL</label>
+            <input id="image-url" name="imageUrl" type="url" placeholder="https://example.com/pet-photo.jpg" required>
+          </div>
+
+          <div class="form-field">
+            <label for="contact-info">Contact Info</label>
+            <input id="contact-info" name="contact" type="text" placeholder="Phone number or email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="5" placeholder="Describe the pet, where it was seen, collar, markings, etc." required></textarea>
+          </div>
+
+          <button class="primary-button form-submit" type="submit">Submit Report</button>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Santa Cruz Pet Watch</p>
+      <p>Community service project • Santa Cruz International School</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
